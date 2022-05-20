@@ -1,44 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:payflow/shared/themes/app_colors.dart';
+import 'package:payflow/modules/login/login_page.dart';
+// import 'package:payflow/modules/splash/splash_page.dart';
+// import 'package:payflow/modules/home/home_page.dart';
 
 void main() {
   runApp(MaterialApp(
-    theme: ThemeData(primarySwatch: Colors.purple),
-    home: HomePage(),
+    debugShowCheckedModeBanner: false,
+    title: 'Pay Flow',
+    theme: ThemeData(
+      primaryColor: AppColors.primary,
+    ),
+    home: const LoginPage(),
   ));
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  int contador = 0;
-  void increment() {
-    contador++;
-    setState(() {});
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pay Flow'),
-        centerTitle: true,
-      ),
-      body: Center(
-          child: Text(
-        'Contador\n $contador',
-        textAlign: TextAlign.center,
-      )),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          increment();
-        },
-      ),
-    );
-  }
 }
